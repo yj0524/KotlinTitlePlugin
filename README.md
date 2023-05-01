@@ -1,7 +1,5 @@
 # KotlinTitlePlugin (Paper 1.19.4)
 
----
-
 ### 사용법
 
 `/titles <player> <title> [subtitle]`

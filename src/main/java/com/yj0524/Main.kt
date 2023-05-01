@@ -2,7 +2,6 @@ package com.yj0524
 
 import org.bukkit.plugin.java.JavaPlugin
 import io.github.monun.kommand.*
-import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
 class Main : JavaPlugin() {

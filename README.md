@@ -4,7 +4,7 @@
 
 ### 사용법
 
-/titles <player> <title> [subtitle]
+`/titles <player> <title> [subtitle]`
 
 ---
 

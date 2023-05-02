@@ -13,5 +13,3 @@
 ### Libraries
 
 - [Kommand](https://github.com/monun/kommand)
-
-#### $\textcolor{red}{\textsf{Colors work}}$

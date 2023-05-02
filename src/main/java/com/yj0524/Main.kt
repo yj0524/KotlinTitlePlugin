@@ -1,8 +1,11 @@
 package com.yj0524
 
-import org.bukkit.plugin.java.JavaPlugin
-import io.github.monun.kommand.*
+import io.github.monun.kommand.KommandArgument
+import io.github.monun.kommand.StringType
+import io.github.monun.kommand.getValue
+import io.github.monun.kommand.kommand
 import org.bukkit.entity.Player
+import org.bukkit.plugin.java.JavaPlugin
 
 class Main : JavaPlugin() {
 
@@ -33,7 +36,7 @@ class Main : JavaPlugin() {
                             val players: Collection<Player> by it
                             val title: String by it
                             players.forEach { player ->
-                                val title = title.replace("&", "§")
+                                val title = replaceAmpersand(title)
                                 player.sendTitle(title, null)
                             }
                         }
@@ -43,8 +46,8 @@ class Main : JavaPlugin() {
                                 val title: String by it
                                 val subtitle: String by it
                                 players.forEach { player ->
-                                    val title = title.replace("&", "§")
-                                    val subtitle = subtitle.replace("&", "§")
+                                    val title = replaceAmpersand(title)
+                                    val subtitle = replaceAmpersand(subtitle)
                                     player.sendTitle(title, subtitle)
                                 }
                             }
@@ -53,5 +56,24 @@ class Main : JavaPlugin() {
                 }
             }
         }
+    }
+
+    fun replaceAmpersand(input: String): String {
+        val sb = StringBuilder()
+        var i = 0
+        while (i < input.length) {
+            if (input[i] == '&' && i + 1 < input.length) {
+                val c = input[i + 1]
+                if (Character.isLetterOrDigit(c) && "0123456789abcdefklmnor".contains(c, ignoreCase = true)) {
+                    sb.append("§")
+                } else {
+                    sb.append("&")
+                }
+            } else {
+                sb.append(input[i])
+            }
+            i++
+        }
+        return sb.toString()
     }
 }

@@ -1,4 +1,4 @@
-# KotlinTitlePlugin (Paper 1.19.4)
+# KotlinTitlePlugin (Paper 1.20.1)
 
 ### 사용법
 
